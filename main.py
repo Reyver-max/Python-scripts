@@ -1,27 +1,40 @@
-# This is a rock-paper-scissors  game
-# The aim is to create more complicated if structures
-
+"""""
+COMP.CS.100. Programming 1. 3.3  Project 1: Credit Point Calculator
+Reyver Serna: rs412764@tuni.filte
+Student number: 412764
+"""""
+import sys
 def main():
-    # Define the players' inputs
-    Player_1 = input("Player 1, enter your choice (R/P/S): ")
-    answer = str(Player_1)
-    Player_2 = input("Player 2, enter your choice (R/P/S): ")
-    answer = str(Player_2)
 
-    if Player_1 == 'P' and Player_2 == 'S':
-        print("Player 2 won!")
-    elif Player_1 == 'P' and Player_2 == 'R':
-        print("Player 1 won!")
-    if Player_1 == 'R' and Player_2 == 'P':
-        print("Player 2 won!")
-    elif Player_1 == 'R' and Player_2 == 'S':
-        print("Player 1 won!")
-    if Player_1 == 'S' and Player_2 == 'R':
-        print("Player 2 won!")
-    elif Player_1 == 'S' and Player_2 == 'P':
-        print("Player 1 won!")
-    else:
-        if Player_1 == Player_2:
-            print("It's a tie!")
+    months = int(input("Enter the number of months: "))
+
+    sum = 0
+    counter = 1
+    last_integer = None
+
+
+    while counter <= months:
+        credits_gained = int(input(f"Enter the number of credits in month{counter}: "))
+        # if statement to validate that if the last_integer and credits
+        # are equal and credits is zero then break the loop
+        if credits_gained == last_integer and credits_gained == 0:
+            break
+            print()
+            print("You did have too many study breaks!")
+
+        else:
+            sum += credits_gained
+        counter +=1
+
+
+    average = sum / months
+    if average >=5:
+        print()
+        print(f'You are a full time student and your monthly credit point average is {average:.1f}.')
+    if average <5:
+        print()
+        print(f"Your monthly credit point average {average:.1f} does not classify you as a full time student")
+
+
 if __name__ == "__main__":
     main()
